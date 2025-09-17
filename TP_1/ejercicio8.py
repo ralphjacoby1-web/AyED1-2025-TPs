@@ -1,6 +1,11 @@
 from typing import List
 
 def pedir_fecha()->list:
+    """
+    Esta funcion permite ingresar 3 numeros y los guarda en una lista
+    Pre : No recibe ningun parametro
+    Post : Devuelve una lista con los numeros recibidos
+    """
     fecha = []
     for i in range(3):
         numero = int(input("Ingrese una un dia un mes y un año:" ))
@@ -8,6 +13,11 @@ def pedir_fecha()->list:
     return fecha
 
 def es_bisiesto(anio:int)->bool:
+    """
+    Esta verifica si el entero ingresado es un año bisiesto
+    Pre : Recibe un entero
+    Post : Devuelve un booleano
+    """
     return (anio % 4 == 0 and anio % 100 != 0) or (anio % 400 == 0)
 
 def validar(fecha:list) ->bool:
@@ -46,6 +56,11 @@ def validar(fecha:list) ->bool:
     return True
 
 def mas_uno(lista_fecha:list)->tuple:
+    """
+    Esta le suma un dia a una tupla recibida
+    Pre : Recibe una tupla
+    Post : Devuelve una tupla con un dia mas
+    """
     dia, mes, anio = lista_fecha
     dia += 1 
     if mes == 2:
@@ -81,12 +96,22 @@ def mas_uno(lista_fecha:list)->tuple:
     return dia, mes, anio
 
 def mas_cantidad_dias(cantidad_dias:int, lista_fecha:list)->tuple:
+    """
+    Esta funcion suma una cantidad de dias especifica
+    Pre : Recibe un entero y una lista
+    Post : Devuelve una tupla con los dias sumados
+    """
     fecha = lista_fecha
     for i in range(cantidad_dias):
         fecha = mas_uno(fecha)
     return fecha
 
 def diadelasemana(fecha:tuple)->int:
+    """
+    Esta funcion dice que dia de la semana cae con un entero que lo representa
+    Pre : Recibe una tupla
+    Post : Devuelve un entero
+    """
     dia, mes, anio = fecha
     if mes < 3:
         mes = mes + 10
@@ -101,6 +126,11 @@ def diadelasemana(fecha:tuple)->int:
     return diasem
 
 def cantidad_dias_mes(fecha:tuple)->int:
+    """
+    Esta muestra la cantidad de dias del mes en el que se esta
+    Pre : Recibe una tupla
+    Post : Devuelve un entero
+    """
     dia, mes, anio = fecha
     if es_bisiesto(anio):
         meses = [31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
@@ -110,6 +140,11 @@ def cantidad_dias_mes(fecha:tuple)->int:
     return cantidad_dias 
 
 def nombre(diasem:int)->str:
+    """
+    Esta pasa el entero que representa a un dia por un string
+    Pre : Recibe un entero
+    Post : Devuelve un string
+    """
     if diasem == 0:
         diasem = "Domingo"
     elif diasem == 1:
@@ -127,6 +162,11 @@ def nombre(diasem:int)->str:
     return diasem
 
 def juntar(cantidad_dias:int, fecha:tuple)->list:
+    """
+    Esta agrega todos los dias a una lista
+    Pre : Recibe un entero y una tupla
+    Post : Devuelve una lista con los dias del mes
+    """
     mes = []
     for i in range(cantidad_dias):
         fecha = mas_uno(fecha)
@@ -136,6 +176,11 @@ def juntar(cantidad_dias:int, fecha:tuple)->list:
     return mes
 
 def main():
+    """
+    Esta funcion organiza todas las funciones
+    Pre : No recibe ningun parametro
+    Post : No devuelve ningun parametro
+    """
     fecha = pedir_fecha()
     if validar(fecha):
         dias = cantidad_dias_mes(fecha)

@@ -1,4 +1,9 @@
 def ingresar_datos()->list:
+    """
+    Esta funcion pide el codigo de socio y lo guarda una lista si es correcto
+    Pre : No recibe ningun parametro
+    Post : Devuelve una lista
+    """
     lista_socios = []
     codigo = -1
     while codigo != 0:
@@ -11,6 +16,11 @@ def ingresar_datos()->list:
     return lista_socios
 
 def cuantas_veces(lista_socios:list)->list:
+    """
+    Esta funcion muestra la cantidad de veces que un socio ingreso
+    Pre : Recibe una lista
+    Post : Devuelve una lista
+    """
     base = []
     for elem in set(lista_socios):
             tupla = elem, lista_socios.count(elem)
@@ -19,6 +29,11 @@ def cuantas_veces(lista_socios:list)->list:
     return base
 
 def eliminar(base:list):
+    """
+    Esta funcion elimina un socio por codigo de socio
+    Pre : Recibe una lista de tuplas
+    Post : Devuelve una lista de tuplas
+    """
     print(f"Esta es la lista de ingresados {base}")
     a_eliminar = int(input("Ingrese el socio que se bajo: "))
     while a_eliminar > 99999 or a_eliminar < 9999:
@@ -29,6 +44,11 @@ def eliminar(base:list):
     print(f"Asi esta la lista de usuarios ahora {base_modificada}, se elimino a {[x for x in base if x[0] == a_eliminar]}")
 
 def main():
+    """
+    Esta funcion organiza todas las funciones
+    Pre : No recibe ningun parametro
+    Post : No devuelve ningun parametro
+    """
     datos = ingresar_datos()
     base = cuantas_veces(datos)
     eliminar(base)

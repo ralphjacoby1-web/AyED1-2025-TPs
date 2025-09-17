@@ -1,4 +1,9 @@
 def tomar_valores()->list:
+    """
+    Esta funcion recibe los codigos del usuario y si se atendio por urgencia con turno
+    Pre : No recibe ningun parametro
+    Post : Devuelve una lista de tuplas
+    """
     turno_urgencia = -2
     pacientes = []
     while turno_urgencia != -1:
@@ -13,12 +18,22 @@ def tomar_valores()->list:
     return pacientes
 
 def generar_listas(pacientes:list):
+    """
+    Esta funcion muestra la cantidad de personas que atendieron por urgencia o turno
+    Pre : Recibe una lista de tuplas
+    Post : No devuelve ningun parametro
+    """
     urgencia = [codigo for codigo, tipo in pacientes if tipo == 0]
     turno = [codigo for codigo, tipo in pacientes if tipo == 1]
     print("Pacientes por urgencia:", urgencia)
     print("Pacientes por turno:", turno)
 
 def buscar_afiliado(pacientes:list):
+    """
+    Esta funcion muestra la cantidad de veces que se atendio una persona por turno o urgencia
+    Pre : Recibe una lista de tuplas
+    Post : No devuelve ningun parametro
+    """
     afliliado = 0
     while afliliado != -1:
         contador = 0
@@ -34,6 +49,11 @@ def buscar_afiliado(pacientes:list):
         print(f"El paciente fue atendido {urgencia} veces por urgencias")
 
 def main():
+    """
+    Esta funcion organiza todas las funciones
+    Pre : No recibe ningun parametro
+    Post : No devuelve ningun parametro
+    """
     pacientes = tomar_valores()
     generar_listas(pacientes)
     buscar_afiliado(pacientes)

@@ -1,10 +1,20 @@
 import random as rn
 
 def cantidad_numeros()->list:
+    """
+    Esta pide una cantidad de numeros que el usuario desea generar aleatoriamente
+    Pre : No recibe ningun parametro
+    Post : Devuelve una lista
+    """
     aleatorios = int(input("Ingrese un la cantidad de numeros que desea: "))
     return [rn.randint(1,100) for x in range(aleatorios)]
 
 def repetido(lista:list)->bool:
+    """
+    Esta funcion se fija si hay un elemento repetido
+    Pre : Recibe una lista 
+    Post : Devuelve un booleano
+    """
     for elem in lista:
         repetido = lista.count(elem)
         if repetido >= 2:
@@ -13,6 +23,11 @@ def repetido(lista:list)->bool:
         return False
 
 def unicos(lista:list)->list:
+    """
+    Esta funcion guarda en una lista los numeros que sean unicos de la lista ingresada
+    Pre : Recibe una lista de parametro
+    Post : Devuelve una lista
+    """
     nueva_lista = []
     for elem in lista:
         if lista.count(elem) ==  1:
@@ -20,6 +35,11 @@ def unicos(lista:list)->list:
     return nueva_lista
 
 def main():
+    """
+    Esta funcion organiza todas las funciones
+    Pre : No recibe ningun parametro
+    Post : No devuelve ningun parametro
+    """
     lista = cantidad_numeros()
     print(lista)
     if repetido(lista):

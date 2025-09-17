@@ -1,18 +1,20 @@
 import random as rn
-#100 naranjas por cajon
-#en cajones solo naranjas entre 200 y 300 gramos el resto para jugo
-#simular entre 150 y 350 
-#camion puede llevar 500kg 
-#camion minimo 80% ocupado
-
-# se quiere saber cuantos camiones se necesitan 
-#que se pueda ingresar cantidad de naranjas
 
 def cantidad_naranjas()->int:
+    """
+    Esta le pide al usuario una cantidad de naranjas
+    Pre : No recibe ningun parametro
+    Post : Devuelve un entero
+    """
     naranjas = int(input("Ingrese cantidad de naranjas:"))
     return naranjas
 
 def peso_random(naranjas:int)->list:
+    """
+    Esta funcion genera numeros random para los pesos de las naranjas
+    Pre : Recibe un entero
+    Post : Devuelve una lista
+    """
     lista_pesos = []
     for i in range(naranjas):
         peso_naranjas = rn.randint(150,351)
@@ -20,6 +22,11 @@ def peso_random(naranjas:int)->list:
     return lista_pesos
 
 def contar_naranjas(lista_pesos:list)->tuple:
+    """
+    Esta cuenta las naranjas buenas, malas y acumula el peso de las buenas
+    Pre : Recibe una lista
+    Post : Devuelve una tupla
+    """
     acumulador_buenas = 0
     contador_buenas = 0
     contador_jugo = 0
@@ -32,6 +39,11 @@ def contar_naranjas(lista_pesos:list)->tuple:
     return contador_buenas, contador_jugo, acumulador_buenas
 
 def cuantos_cajones(contador_buenas:int)->tuple:
+    """
+    Esta funcion cuenta la cantidad de cajones que se requieren y las naranjas restantes
+    Pre : Recibe un entero
+    Post : Devuelve una tupla
+    """
     cajones = 0
     naranjas_restantes = contador_buenas
     while naranjas_restantes > 100:
@@ -40,6 +52,11 @@ def cuantos_cajones(contador_buenas:int)->tuple:
     return cajones, naranjas_restantes
 
 def cuantos_camiones(acumulador_buenas:int, contador_buenas:int)->tuple:
+    """
+    Esta calcula la cantidad de camiones, si hay camiones menores a 500kg y el peso por cajon
+    Pre : No recibe ningun parametro
+    Post : No devuelve ningun parametro
+    """
     camiones = 0
     peso_x_cajon = acumulador_buenas / contador_buenas
     peso_x_cajon_kg = peso_x_cajon / 1000
@@ -55,6 +72,11 @@ def cuantos_camiones(acumulador_buenas:int, contador_buenas:int)->tuple:
     return camiones, peso_x_cajon_kg, camion_menos_500
 
 def cajones_por_caminon(camiones:int, peso_x_cajon_kg:int, camion_menos_500:int)->int:
+    """
+    Esta funcion calcula cuantos cajones entran en un camion
+    Pre : Recibe tres enteros distintos en forma de tupla
+    Post : Devuelve un entero
+    """
     cajones = 500 / peso_x_cajon_kg
     if camion_menos_500:
         sobras = camion_menos_500 / peso_x_cajon_kg
@@ -64,6 +86,11 @@ def cajones_por_caminon(camiones:int, peso_x_cajon_kg:int, camion_menos_500:int)
 
 
 def main():
+    """
+    Esta funcion organiza todas las funciones
+    Pre : No recibe ningun parametro
+    Post : No devuelve ningun parametro
+    """
     naranjas = cantidad_naranjas()
     lista_pesos = peso_random(naranjas)
     naranjas_buenas, naranjas_malas, peso_naranjas_buenas = contar_naranjas(lista_pesos) 
