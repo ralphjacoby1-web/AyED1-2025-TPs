@@ -7,11 +7,11 @@ def pedir_fecha()->list:
         lista_fecha.append(numero)
     return lista_fecha
 
-def pedir_dias():
+def pedir_dias()->int:
     dias = int(input("Ingrese un la cantidad de dias que desea agregar: "))
     return dias
 
-def es_bisiesto(anio):
+def es_bisiesto(anio:int)->bool:
     return (anio % 4 == 0 and anio % 100 != 0) or (anio % 400 == 0)
 
 def validar(lista_fecha:list) ->bool:
@@ -49,7 +49,7 @@ def validar(lista_fecha:list) ->bool:
                 return False
     return True
 
-def mas_uno(lista_fecha:list):
+def mas_uno(lista_fecha:list)->tuple:
     dia, mes, anio = lista_fecha
     dia += 1 
     if mes == 2:

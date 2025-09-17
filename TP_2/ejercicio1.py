@@ -1,19 +1,14 @@
 import random as rn
 from functools import reduce
 
-def generar_lista():
-    # lista = []
-    # iteraciones = rn.randint(10,99)
-    # for i in range(iteraciones):
-    #     lista.append(rn.randint(1000, 9999))
-    # return lista
+def generar_lista()->list:
     return [rn.randint(1000, 9999) for x in range(rn.randint(10,99))]
 
-def multiplicar(lista):
+def multiplicar(lista:list)->int:
     multiplicar = reduce(lambda x,y: x*y, lista)
     return multiplicar
 
-def eliminar_valor(lista):
+def eliminar_valor(lista:list):
     valor_eliminar = int(input("Ingrese un valor a eliminar: "))
     cantidad = lista.count(valor_eliminar)
     for i in range(cantidad):

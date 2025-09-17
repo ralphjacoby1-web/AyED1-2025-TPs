@@ -19,12 +19,24 @@ def generar_listas(pacientes):
     print("Pacientes por turno:", turno)
 
 def buscar_afiliado(pacientes):
-    pass
-
+    afliliado = 0
+    while afliliado != -1:
+        contador = 0
+        afliliado = int(input("Ingrese el numero de afiliado: "))
+        if afliliado == -1:
+            print("Gracias!")
+            break
+        while afliliado > 9999 or afliliado < 1000:
+            afliliado = int(input("Ingrese un codigo de afiliado valido (1000-9999): "))
+        turno = sum(1 for paciente in pacientes if paciente[1] == 1 and paciente[0] == afliliado)
+        urgencia = sum(1 for paciente in pacientes if paciente[1] == 0 and paciente[0] == afliliado)
+        print(f"El paciente fue atendido {turno} veces con turno")
+        print(f"El paciente fue atendido {urgencia} veces por urgencias")
 
 def main():
     pacientes = tomar_valores()
     generar_listas(pacientes)
+    buscar_afiliado(pacientes)
 
 
 main()
