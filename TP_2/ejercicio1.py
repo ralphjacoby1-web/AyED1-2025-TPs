@@ -8,20 +8,15 @@ def multiplicar(lista:list)->int:
     multiplicar = reduce(lambda x,y: x*y, lista)
     return multiplicar
 
-def eliminar_valor(lista:list):
+def eliminar_valor(lista:list)->list:
     valor_eliminar = int(input("Ingrese un valor a eliminar: "))
     cantidad = lista.count(valor_eliminar)
     for i in range(cantidad):
         lista.remove(valor_eliminar)
     return lista
 
-def capicua(lista):
-    copia = lista.copy()
-    al_reves = copia.reverse()
-    if lista == al_reves:
-        return True
-    else:
-        return False
+def capicua(lista: list) -> bool:
+    return lista == lista[::-1]
 
 def main():
     lista = generar_lista()

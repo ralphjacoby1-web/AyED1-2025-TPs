@@ -1,4 +1,4 @@
-def generar_lista():
+def generar_lista()->tuple:
     lista = [x for x in range(1, 101)]
     return list(filter(lambda x: x % 2 == 0 + 1,lista)), lista
 

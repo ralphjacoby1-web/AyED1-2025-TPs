@@ -1,4 +1,4 @@
-def tomar_valores():
+def tomar_valores()->list:
     turno_urgencia = -2
     pacientes = []
     while turno_urgencia != -1:
@@ -12,13 +12,13 @@ def tomar_valores():
             pacientes.append((codigo, turno_urgencia))
     return pacientes
 
-def generar_listas(pacientes):
+def generar_listas(pacientes:list):
     urgencia = [codigo for codigo, tipo in pacientes if tipo == 0]
     turno = [codigo for codigo, tipo in pacientes if tipo == 1]
     print("Pacientes por urgencia:", urgencia)
     print("Pacientes por turno:", turno)
 
-def buscar_afiliado(pacientes):
+def buscar_afiliado(pacientes:list):
     afliliado = 0
     while afliliado != -1:
         contador = 0

@@ -1,14 +1,10 @@
 import random as rn
 
-def cantidad_numeros():
-    #lista = []
+def cantidad_numeros()->list:
     aleatorios = int(input("Ingrese un la cantidad de numeros que desea: "))
-    # for i in range(aleatorios):
-    #     lista.append(rn.randint(1,100))
-    # return lista
     return [rn.randint(1,100) for x in range(aleatorios)]
 
-def repetido(lista):
+def repetido(lista:list)->bool:
     for elem in lista:
         repetido = lista.count(elem)
         if repetido >= 2:
@@ -16,7 +12,7 @@ def repetido(lista):
     else:
         return False
 
-def unicos(lista):
+def unicos(lista:list)->list:
     nueva_lista = []
     for elem in lista:
         if lista.count(elem) ==  1:

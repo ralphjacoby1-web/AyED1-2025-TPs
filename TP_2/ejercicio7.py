@@ -1,6 +1,6 @@
 import random as rn
 
-def generar_lista():
+def generar_lista()->tuple:
     lista1 = []
     lista2 = []
     for i in range(5):
@@ -8,11 +8,10 @@ def generar_lista():
         lista2.append(rn.randint(1,20))
     return lista1, lista2
 
-def intercalar(lista1, lista2): 
+def intercalar(lista1:list, lista2:list)->list: 
     for i, elem in enumerate(lista2):
-        lista1[i:i] = [elem]
-        return lista1
-    #usar enumerate
+        lista1[i*2:i*2] = [elem]
+    return lista1
 
 def main():
     lista1, lista2 = generar_lista()

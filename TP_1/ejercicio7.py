@@ -93,13 +93,13 @@ def dias_sobra(dia:int, dias:int):
         elif dia < dias:
             pass
 
-def mas_cantidad_dias(dias:int, lista_fecha:list):
+def mas_cantidad_dias(dias:int, lista_fecha:list)->tuple:
     fecha = lista_fecha
     for i in range(dias):
         fecha = mas_uno(fecha)
     return fecha
 
-def cual_es_mayor(lista_fecha:list, lista2:list):
+def cual_es_mayor(lista_fecha:list, lista2:list)->tuple:
     dia, mes, anio = lista_fecha
     dia2, mes2, anio2 = lista2
     if anio > anio2:

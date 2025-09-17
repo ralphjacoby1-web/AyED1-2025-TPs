@@ -1,4 +1,4 @@
-def ingresar_datos():
+def ingresar_datos()->list:
     lista_socios = []
     codigo = -1
     while codigo != 0:
@@ -10,7 +10,7 @@ def ingresar_datos():
         lista_socios.append(codigo)
     return lista_socios
 
-def cuantas_veces(lista_socios):
+def cuantas_veces(lista_socios:list)->list:
     base = []
     for elem in set(lista_socios):
             tupla = elem, lista_socios.count(elem)
@@ -18,7 +18,7 @@ def cuantas_veces(lista_socios):
             print(f"el usuario con el codigo {elem}, fue una cantidad de {lista_socios.count(elem)} veces")
     return base
 
-def eliminar(base):
+def eliminar(base:list):
     print(f"Esta es la lista de ingresados {base}")
     a_eliminar = int(input("Ingrese el socio que se bajo: "))
     while a_eliminar > 99999 or a_eliminar < 9999:

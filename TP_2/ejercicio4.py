@@ -1,6 +1,6 @@
 import random as rn
 
-def generar_listas():
+def generar_listas()->tuple:
     lista1 = []
     lista2 = []
     for i in range(9):
@@ -8,7 +8,7 @@ def generar_listas():
         lista2.append(rn.randint(1,20))
     return lista1, lista2
 
-def restar_valores(lista1, lista2):
+def restar_valores(lista1:list, lista2:list)->list:
     for elem in lista1[:]:
         if elem in lista2:
             lista1.remove(elem)

@@ -7,7 +7,7 @@ def pedir_fecha()->list:
         fecha.append(numero)
     return fecha
 
-def es_bisiesto(anio):
+def es_bisiesto(anio:int)->bool:
     return (anio % 4 == 0 and anio % 100 != 0) or (anio % 400 == 0)
 
 def validar(fecha:list) ->bool:
@@ -45,7 +45,7 @@ def validar(fecha:list) ->bool:
                 return False
     return True
 
-def mas_uno(lista_fecha:list):
+def mas_uno(lista_fecha:list)->tuple:
     dia, mes, anio = lista_fecha
     dia += 1 
     if mes == 2:
@@ -80,13 +80,13 @@ def mas_uno(lista_fecha:list):
         anio += 1
     return dia, mes, anio
 
-def mas_cantidad_dias(cantidad_dias:int, lista_fecha:list):
+def mas_cantidad_dias(cantidad_dias:int, lista_fecha:list)->tuple:
     fecha = lista_fecha
     for i in range(cantidad_dias):
         fecha = mas_uno(fecha)
     return fecha
 
-def diadelasemana(fecha):
+def diadelasemana(fecha:tuple)->int:
     dia, mes, anio = fecha
     if mes < 3:
         mes = mes + 10
@@ -100,7 +100,7 @@ def diadelasemana(fecha):
         diasem = diasem + 7
     return diasem
 
-def cantidad_dias_mes(fecha:list):
+def cantidad_dias_mes(fecha:tuple)->int:
     dia, mes, anio = fecha
     if es_bisiesto(anio):
         meses = [31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
@@ -109,7 +109,7 @@ def cantidad_dias_mes(fecha:list):
     cantidad_dias = meses[mes -1]
     return cantidad_dias 
 
-def nombre(diasem):
+def nombre(diasem:int)->str:
     if diasem == 0:
         diasem = "Domingo"
     elif diasem == 1:
@@ -126,7 +126,7 @@ def nombre(diasem):
         diasem = "Sabado"
     return diasem
 
-def juntar(cantidad_dias, fecha):
+def juntar(cantidad_dias:int, fecha:tuple)->list:
     mes = []
     for i in range(cantidad_dias):
         fecha = mas_uno(fecha)

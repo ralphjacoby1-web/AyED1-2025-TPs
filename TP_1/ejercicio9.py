@@ -8,18 +8,18 @@ import random as rn
 # se quiere saber cuantos camiones se necesitan 
 #que se pueda ingresar cantidad de naranjas
 
-def cantidad_naranjas():
+def cantidad_naranjas()->int:
     naranjas = int(input("Ingrese cantidad de naranjas:"))
     return naranjas
 
-def peso_random(naranjas):
+def peso_random(naranjas:int)->list:
     lista_pesos = []
     for i in range(naranjas):
         peso_naranjas = rn.randint(150,351)
         lista_pesos.append(peso_naranjas)
     return lista_pesos
 
-def contar_naranjas(lista_pesos):
+def contar_naranjas(lista_pesos:list)->tuple:
     acumulador_buenas = 0
     contador_buenas = 0
     contador_jugo = 0
@@ -31,7 +31,7 @@ def contar_naranjas(lista_pesos):
             contador_jugo += 1
     return contador_buenas, contador_jugo, acumulador_buenas
 
-def cuantos_cajones(contador_buenas):
+def cuantos_cajones(contador_buenas:int)->tuple:
     cajones = 0
     naranjas_restantes = contador_buenas
     while naranjas_restantes > 100:
@@ -39,7 +39,7 @@ def cuantos_cajones(contador_buenas):
         cajones += 1
     return cajones, naranjas_restantes
 
-def cuantos_camiones(acumulador_buenas, contador_buenas):
+def cuantos_camiones(acumulador_buenas:int, contador_buenas:int)->tuple:
     camiones = 0
     peso_x_cajon = acumulador_buenas / contador_buenas
     peso_x_cajon_kg = peso_x_cajon / 1000
@@ -54,7 +54,7 @@ def cuantos_camiones(acumulador_buenas, contador_buenas):
         camion_menos_500 = en_kilos
     return camiones, peso_x_cajon_kg, camion_menos_500
 
-def cajones_por_caminon(camiones, peso_x_cajon_kg, camion_menos_500):
+def cajones_por_caminon(camiones:int, peso_x_cajon_kg:int, camion_menos_500:int)->int:
     cajones = 500 / peso_x_cajon_kg
     if camion_menos_500:
         sobras = camion_menos_500 / peso_x_cajon_kg

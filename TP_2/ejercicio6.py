@@ -1,19 +1,12 @@
 import random as rn
 from functools import reduce
 
-def generar_listas():
-    # lista = []
-    # for i in range(9):
-    #     lista.append(rn.randint(1,10))
-    # return lista
+def generar_listas()->list:
     return [rn.randint(1,10) for x in range(9)]
 
-def normalizar(lista):
+def normalizar(lista:list)->list:
     normalizado = []
     suma = 0
-    #suma = reduce(lambda x: x + 1, lista)
-    #for elem in lista:
-        #normalizado.append(elem/suma(elem))
     for elem in lista:
         suma += elem
     for elem in lista:

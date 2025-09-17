@@ -1,4 +1,4 @@
-def generar_lista():
+def generar_lista()->list:
     a = int(input("Ingrese un numero: "))
     b = int(input("Ingrese otro numero: "))
     return [x for x in range(a,b) if x % 7 == 0 and x % 5 != 0]
