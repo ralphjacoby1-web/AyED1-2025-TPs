@@ -41,7 +41,7 @@ def buscar_afiliado(pacientes:list):
         if afliliado == -1:
             print("Gracias!")
             break
-        while afliliado > 9999 or afliliado < 1000:
+        while afliliado > 9999 or afliliado < 1000:#cambiar a while true
             afliliado = int(input("Ingrese un codigo de afiliado valido (1000-9999): "))
         turno = sum(1 for paciente in pacientes if paciente[1] == 1 and paciente[0] == afliliado)
         urgencia = sum(1 for paciente in pacientes if paciente[1] == 0 and paciente[0] == afliliado)
