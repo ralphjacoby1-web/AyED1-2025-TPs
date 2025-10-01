@@ -1,7 +1,8 @@
 def centrar():
-    cadena = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut"
-    espacio = int(input("Ingrese el espacio: "))
-    espacios = " " * espacio
-    print(f"{espacios}{cadena}{espacios}")
+    cadena = input("Ingrese una oracion: ")
+    funcion = lambda x: (80-x)//2
+    cantidad_car = len(cadena)
+    espacio = funcion(cantidad_car)
+    print(f"{espacio * " "}{cadena}{espacio * " "}")
 
 centrar()
