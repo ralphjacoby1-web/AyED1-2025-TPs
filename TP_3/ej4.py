@@ -5,7 +5,7 @@ from functools import reduce
 def crear_matriz():
     cantidad_fabricas = int(input("Ingrese la candtidad de farbicas: "))
     matriz = [[rn.randint(0,150) for x in range(7)] for x in range(cantidad_fabricas)]
-    return matriz
+    return matriz, cantidad_fabricas
 
 def cantidad_por_fabrica(matriz):
     lista_produ = []
@@ -41,17 +41,31 @@ def indices_dias(dia):
     else:
         return "Domingo"
 
-def dia_mas_productivo():
-    pass
+def cantidad_por_dia(matriz):
+    lista_menor = []
+    mayor = 0
+    indice_mayor = -1
+    matriz_traspuesta = list(zip(*matriz))
+    for elem in matriz_traspuesta:
+        lista_menor.append(reduce(lambda x,y: x+y, elem))
+    for i,elemento in enumerate(lista_menor):
+        if elemento > mayor:
+            mayor = elemento
+            indice_mayor = i
+    print(f"El dia con mas produccion es el {indices_dias(indice_mayor)} y se produjeron {mayor} bicicletas")
+
 
 def menor_fabricas(matriz):
-    lista = []
-    print(lista)
+    lista = [(min(x)) for x in matriz]
+    print(f"La lista con las menores produccion por farbica es: {lista}")
 
-matriz = crear_matriz()
-print(matriz)
-cantidad_por_fabrica(matriz)
-mas_produccion(matriz)
-menor_fabricas(matriz)
+def main():
+    matriz, cantidad_fabricas = crear_matriz()
+    print(matriz)
+    cantidad_por_fabrica(matriz)
+    mas_produccion(matriz)
+    cantidad_por_dia(matriz)
+    menor_fabricas(matriz)
 
 
+main()
