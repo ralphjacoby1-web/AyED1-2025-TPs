@@ -50,30 +50,39 @@ def reservar(matriz, filas, butacas):
         return False
     
 
-# def butacas_contiguas(matriz):
-#     contador = 0
-#     mayor = 0
-#     for i,fila in enumerate(matriz):
-#         for j,columna in enumerate(fila):
-#             while True:
-#                 if not columna:
-#                     break
-#                 else:
-#                     contador += 1
-#         if mayor < contador:
-#             mayor = contador
-#     print(f"Las mayor cantidad de butacas contiguas en la sala es de {mayor}")
+def butacas_contiguas(matriz):
+    mayor = 0
+    lista_mayor = []
+    for i,fila in enumerate(matriz):
+        contador = 0
+        lista_coord = []
+        for j,columna in enumerate(fila):
+            if columna:
+                contador += 1
+                lista_coord.append((i,j))#guarda todas las coordenadas de las butacas libres y luego se usa el primero de la lista
+                if contador > mayor:
+                    mayor = contador
+                    lista_mayor = lista_coord
+            else: 
+                contador = 0
+                lista_coord = []
+    x,y = lista_mayor[0]
+    x += 1
+    y += 1
+    print(f"La secuencia de butacas libres mas larga comienza en la fila {x} butaca {y} y tiene {mayor} lugares libres")
 
-
-matriz, butacas, filas = crear_matriz()
-cargar_sala(matriz, butacas)
-ocupado_libre = mostrar_butacas(matriz)
-print(ocupado_libre)
-if reservar(matriz, filas, butacas):
-    print("Se reservo correctamente el asiento")
+def main():
+    matriz, butacas, filas = crear_matriz()
+    cargar_sala(matriz, butacas)
     ocupado_libre = mostrar_butacas(matriz)
     print(ocupado_libre)
-else:
-    print("El asiento estaba ocupado")
-butacas_libres(matriz)
-# butacas_contiguas(matriz)
+    if reservar(matriz, filas, butacas):
+        print("Se reservo correctamente el asiento")
+        ocupado_libre = mostrar_butacas(matriz)
+        print(ocupado_libre)
+    else:
+        print("El asiento estaba ocupado")
+    butacas_libres(matriz)
+    butacas_contiguas(matriz)
+
+main()
