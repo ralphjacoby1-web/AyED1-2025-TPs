@@ -5,11 +5,11 @@ def pedir_fichas():
         for i in range(2):
             while True:
                 valores = int(input("Ingrese los valores de la ficha: "))
-                if not 0 < valores <= 6:
-                    valores = int(input("Ingrese el valor correctamente: "))
-                else:
+                if 0 < valores <= 6:
                     lista_interna.append(valores)
                     break
+                else:
+                    print("Valor invalido.")
         lista.append(tuple(lista_interna))
     return lista
 
