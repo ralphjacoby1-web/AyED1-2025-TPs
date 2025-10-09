@@ -28,16 +28,60 @@ def diagonal_secundaria(matriz):
         indice -= 1
     formatear(matriz)
 
+def lineas_cortadas(matriz):
+    acumulador = 1
+    indice = -1
+    flag = False
+    matriz_invertida = matriz[::-1]
+    for fila in matriz_invertida:
+        for j,columna in enumerate(fila):
+            fila[j] += acumulador
+        if flag == True:
+            for i in range(indice, 0):
+                fila[i] = 0
+            indice -= 1
+        flag = True
+        acumulador += 1
+    formatear(matriz)
+
 def lineas(matriz):
     acumulador = 1
     matriz_invertida = matriz[::-1]
     for fila in matriz_invertida:
-        for columna in fila:
-            fila[columna] += acumulador
-        acumulador += 1
+        for j,columna in enumerate(fila):
+            fila[j] += acumulador
+        acumulador *= 2
+    formatear(matriz)
+
+def intercalado(matriz):
+    acumulador = 1
+    for j,fila in enumerate(matriz):
+        if j % 2 == 0:
+            for i in range(1,len(fila),2):
+                fila[i] += acumulador
+                acumulador += 1
+        else:
+            for i in range(0,len(fila),2):
+                fila[i] += acumulador
+                acumulador += 1
+    formatear(matriz)
+
+def contar_al_reves(matriz):
+    ultimo_valor = len(matriz) * len(matriz[0])
     formatear(matriz)
 
 
+
+
+    # acumulador = 1
+    # indice = -1
+    # for fila in matriz:
+    #     for i in range(indice, 0):
+    #         fila[i] += acumulador
+    #         acumulador += 1
+    #     indice -= 1
+    # formatear(matriz)
+
 matriz = generar_matriz()
 # diagonal_secundaria(matriz)
-lineas(matriz)
+contar_al_reves(matriz)

@@ -1,4 +1,9 @@
-def generar_numeros():
+def generar_numeros()->None:
+    """
+    Esta funcion genera muchos numeros en linea y permite cancelar el proceso 
+    Pre : No recibe nada
+    Post : No devuelve nada
+    """
     try:
         generador()
     except KeyboardInterrupt:
@@ -10,7 +15,12 @@ def generar_numeros():
             else:
                 print("Opcion incorrecta.")
 
-def generador():
+def generador()->None:
+    """
+    Esta funcion genera muchos numeros uno abajo del otro
+    Pre : No recibe nada
+    Post : No devuelve nada
+    """
     for i in range(1,100001):
             print(i)
 

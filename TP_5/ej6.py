@@ -1,4 +1,9 @@
-def generar_lista():
+def generar_lista()->list:
+    """
+    Esta funcion llena una lista con enteros ingresados por el usuario
+    Pre : No recibe nada
+    Post : Devuelve una lista
+    """
     lista = []
     while True:
         try:
@@ -11,7 +16,12 @@ def generar_lista():
             lista.append(valor)
     return lista
 
-def buscar_indice(lista):
+def buscar_indice(lista:list)->None:
+    """
+    Esta funcion devuelve el indice de un valor en una lista
+    Pre : Recibe una lista
+    Post : No devuelve nada
+    """
     contador = 0
     while contador < 4:
         try:
@@ -25,7 +35,12 @@ def buscar_indice(lista):
     raise ValueError("Se intento 3 veces.")
 
 
-def main():
+def main()->None:
+    """
+    Esta funcion junta las funciones
+    Pre : No recibe nada
+    Post : No devuelve nada
+    """
     lista = generar_lista()
     buscar_indice(lista)
 

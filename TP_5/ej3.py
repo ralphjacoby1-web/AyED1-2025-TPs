@@ -1,14 +1,25 @@
 class NoExisteMes(Exception):
+    """Error por si no existe el mes"""
     pass
 
-def cadena_mes(mes = 21):
+def cadena_mes(mes:int = 21)->str:
+    """
+    Esta funcion se fija si el mes existe
+    Pre : Recibe un entero
+    Post : Devuelve un string
+    """
     try:
         mes = mes_nombre(mes)
         print(mes)
     except NoExisteMes:
         print("")
 
-def mes_nombre(mes):
+def mes_nombre(mes:int)->str:
+    """
+    Esta funcion devuelve un mes en formato string
+    Pre : Recibe un entero
+    Post : Devuelve un string
+    """
     if mes == 1:
         return "Enero"
     elif mes == 2:

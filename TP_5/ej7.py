@@ -1,6 +1,11 @@
 import random as rn
 
-def generar_num():
+def generar_num()->None:
+    """
+    Esta funcion genera un numero random y permite al usuario adivinarlo y le dice cuantos intentos necesito
+    Pre : No recibe nada
+    Post : No devuelve nada
+    """
     contador = 0
     numero = rn.randint(1,500)
     while True:

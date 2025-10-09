@@ -1,9 +1,11 @@
 from math import sqrt
 
-class NumNegativo(Exception):
-    pass
-
-def verificar_raiz():
+def verificar_raiz()->None:
+    """
+    Esta funcion se fija si el numero ingresado es valido para una raiz
+    Pre : No recibe nada
+    Post : No devuelve nada
+    """
     while True:
         try:
             valor = int(input("Ingrese un valor: "))

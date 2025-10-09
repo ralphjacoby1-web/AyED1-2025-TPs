@@ -1,4 +1,4 @@
-def ingresar_fecha():
+def ingresar_fecha()->tuple:
     while True:
         dia = int(input("Ingrese un dia: "))
         mes = int(input("Ingrese un mes: "))
@@ -52,7 +52,12 @@ def validar(fecha:tuple) ->bool:
                 return False
     return True
 
-def mes_nombre(mes):
+def mes_nombre(mes:int)->str:
+    """
+    Esta funcion devuelve un mes en formato escrito
+    Pre : Recibe un entero
+    Post : Devuelve un string
+    """
     if mes == 1:
         return "Enero"
     elif mes == 2:
@@ -78,7 +83,12 @@ def mes_nombre(mes):
     else:
         return "Diciembre"
     
-def anio_cambiar(anio):
+def anio_cambiar(anio:int)->int:
+    """
+    Esta funcion elige entre los anios 1900 0 2000
+    Pre : Recibe un entero
+    Post : Devuelve un entero
+    """
     if anio < 100:
         if anio > 30:
             anio += 1900
@@ -86,11 +96,21 @@ def anio_cambiar(anio):
             anio += 2000
     return anio
 
-def mostrar(fecha):
+def mostrar(fecha:tuple)->None:
+    """
+    Esta funcion muestra la fecha formateada
+    Pre : Recibe una tupla
+    Post : No devuelve nada
+    """
     dia, mes, anio = fecha
     print(f"{dia} de {mes_nombre(mes)} de {anio}")
 
-def main():
+def main()->None:
+    """
+    Esta funcion junta todas las funciones
+    Pre : No recibe nada
+    Post : No devuelve nada
+    """
     fecha = ingresar_fecha()
     mostrar(fecha)
 

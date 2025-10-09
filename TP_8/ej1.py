@@ -1,4 +1,9 @@
-def ingresar_fecha():
+def ingresar_fecha()->tuple:
+    """
+    Esta funcion permite ingresar una fecha al usuario
+    Pre : No recibe nada
+    Post : Devuelve una tupla
+    """
     while True:
         dia = int(input("Ingrese un dia: "))
         mes = int(input("Ingrese un mes: "))
@@ -111,7 +116,12 @@ def mas_cantidad_dias(dias:int, fecha:tuple)->tuple:
         fecha = mas_uno(fecha)
     return fecha
 
-def ingresar_horario():
+def ingresar_horario()->tuple:
+    """
+    Esta funcion permite ingresar un horario al usuario
+    Pre : No recibe nada
+    Post : Devuelve dos enteros
+    """
     while True:
         hora = int(input("Ingrese la hora: "))
         minuto = int(input("Ingrese el minuto: "))
@@ -120,10 +130,20 @@ def ingresar_horario():
         else:
             print("Horario invalido.")
 
-def validar_horario(hora, minuto):
+def validar_horario(hora:int, minuto:int)->bool:
+    """
+    Esta funcion valida si la hora y los minutos estan bien
+    Pre : Recibe dos enteros
+    Post : Devuelve un booleano
+    """
     return 0 <= hora < 24 and 0 <= minuto <= 59
 
-def restar_horarios(hora, minuto):
+def restar_horarios(hora:int, minuto:int)->tuple:
+    """
+    Esta funcion calcula la diferencia entre dos horarios
+    Pre : Recibe dos enteros
+    Post : Devuelve dos enteros
+    """
     print("Ingrese el segundo horario.")
     hora2, minuto2 = ingresar_horario()
     if hora2 > hora:
@@ -136,6 +156,11 @@ def restar_horarios(hora, minuto):
     return diferencia_hora, diferencia_mins
 
 def main():
+    """
+    Esta funcion junta todas las funciones
+    Pre : No recibe nada
+    Post : No devuelve nada
+    """
     fecha = ingresar_fecha()
     dias = pedir_dias()
     fecha_nueva = mas_cantidad_dias(dias, fecha)
