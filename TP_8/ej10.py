@@ -1,4 +1,9 @@
-def eliminar_claves(diccionario={"Hola":1231, 1:1213, 432342:"messi"}, lista = [1,2,23,"Hola","messi"]):
+def eliminar_claves(diccionario:dict={"Hola":1231, 1:1213, 432342:"messi"}, lista:list = [1,2,23,"Hola","messi"])->None:
+    """
+    Esta funcion elimina una clave de un diccionario
+    Pre : Recibe un diccionario y una lista
+    Post : No devuelve nada
+    """
     contador = 0
     for k in lista:
         if k in diccionario:
