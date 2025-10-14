@@ -1,4 +1,9 @@
-def nums_romanos():
+def nums_romanos()->dict:
+    """
+    Esta funcion tiene un diccionario con los numeros romanos
+    Pre : No recibe nada
+    Post : Devuelve un diccionario
+    """
     diccionario_romano = {
         1 : "I",
         4 : "IV",
@@ -16,7 +21,12 @@ def nums_romanos():
     }
     return diccionario_romano
 
-def transformador(diccionario):
+def transformador(diccionario:dict)->None:
+    """
+    Esta funcion transforma numeros comunes en numeros romanos
+    Pre : Recibe un diccionario
+    Post : No devuelve nada
+    """
     numero_romano = ""
     lista = []
     while True:
@@ -36,6 +46,11 @@ def transformador(diccionario):
     print(f"{numero_original} en números romanos es: {numero_romano}")
 
 def main():
+    """
+    Esta funcion junta todas las funciones
+    Pre : No recibe nada
+    Post : No devuelve nada
+    """
     dicc = nums_romanos()
     transformador(dicc)
 

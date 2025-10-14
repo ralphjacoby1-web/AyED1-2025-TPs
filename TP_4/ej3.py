@@ -1,4 +1,9 @@
-def clave_maestra(clave= "1234235"):
+def clave_maestra(clave:str= "1234235")->None:
+    """
+    Esta funcion extrae dos claves de una clave
+    Pre : Recibe un string
+    Post : No devuelve nada
+    """
     clave_lista=list(clave.strip())
     clave1 = []
     clave2 = []
