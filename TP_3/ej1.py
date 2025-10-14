@@ -1,6 +1,11 @@
 import random as rn
 
-def generar_matriz():
+def generar_matriz()->tuple:
+    """
+    Esta funcion crea una matriz
+    Pre : No recibe nada
+    Post :Devuelve una lista de listas y un entero
+    """
     matriz = []
     n = int(input("Ingrese el tamanio de la matriz: "))
     for i in range(n):
@@ -10,12 +15,22 @@ def generar_matriz():
             matriz[i].append(rn.randint(1,20))
     return matriz, n 
 
-def ordenar_matriz(matriz):
+def ordenar_matriz(matriz:list)->list:
+    """
+    Esta funcion ordena una matriz
+    Pre : Recibe una lista de listas
+    Post : Devuelve una lista de listas
+    """
     for elem in matriz:
         elem.sort()
     return matriz
 
-def cambiar_lugar(matriz, n):
+def cambiar_lugar(matriz:list, n:int)->list:
+    """
+    Esta funcion cambia dos listas de lugar
+    Pre : Recibe una lista de listas y un entero
+    Post : Devuelve una lista de listas
+    """
     while True:
         fila_1 = int(input("Ingrese la lista que desea cambiar: "))
         if validar_fila(fila_1, n):
@@ -27,11 +42,21 @@ def cambiar_lugar(matriz, n):
     matriz[fila_1], matriz[fila_2] = matriz[fila_2], matriz[fila_1]
     return matriz
 
-def validar_fila(fila, num):
+def validar_fila(fila:list, num:int)->bool:
+    """
+    Esta funcion valida si un valor esta dentro de una lista
+    Pre : Recibe una lista y un entero
+    Post : Devuelve un bool
+    """
     if 0 <= fila < num:
         return True
 
-def trasponer(matriz, n):
+def trasponer(matriz:list, n:int)->list:
+    """
+    Esta funcion traspone una matriz
+    Pre : Recibe una lista de listas
+    Post : Devuelve una lista de listas
+    """
     matriz_traspuesta = []
     for i in range(n):
         matriz_traspuesta.append([])
@@ -40,7 +65,12 @@ def trasponer(matriz, n):
             matriz_traspuesta[i].append(columna)
     return matriz_traspuesta
 
-def promedio(matriz, n):
+def promedio(matriz:list, n:int)->None:
+    """
+    Esta funcion muestra el promedio de una lista en especifico
+    Pre : Recibe una lista de listas y un entero
+    Post : No devuelve nada
+    """
     acumulador = 0
     contador = 0
     while True:
@@ -53,7 +83,12 @@ def promedio(matriz, n):
     promedio = acumulador / contador
     print(f"El promeido de los numeros de la fila {fila} es de {promedio}.")
 
-def impar_porcentaje(matriz_columnas, n):
+def impar_porcentaje(matriz_columnas:list, n:int)->None:
+    """
+    Esta funcion calcula el porcentaje de numeros impares 
+    Pre : Recibe una lista de listas y un entero
+    Post : No devuelve nada
+    """
     while True:
         columna = int(input("Ingrese una columna: "))
         if validar_fila(columna, n):
@@ -64,26 +99,51 @@ def impar_porcentaje(matriz_columnas, n):
     porcentaje = (largo_impares * 100)//largo_normal
     print(f"El porcentaje de numeros impares es de {porcentaje}%")
 
-def matriz_simetrica(matriz1, matriz2):
+def matriz_simetrica(matriz1:list, matriz2:list)->bool:
+    """
+    Esta funcion se fija si una matriz es simetrica con respecto a su diagonal
+    Pre : Recibe dos listas de listas
+    Post : Devuelve un booleano
+    """
     return matriz1 == matriz2
 
-def invertir_matriz_x_fila(matriz, n):
+def invertir_matriz_x_fila(matriz:list, n:int)->list:
+    """
+    Esta funcion invierte una matriz por filas
+    Pre : Recibe una lista de listas y un entero
+    Post : Devuelve una lista de listas
+    """
     matriz_invertida = []
     for elem in matriz:
         matriz_invertida.append(elem[::-1])
     return matriz_invertida
 
-def palindromos(matriz):
+def palindromos(matriz:list)->list:
+    """
+    Esta funcion se fija si una listas en una matriz es capicua
+    Pre : Recibe una lista de listas
+    Post : Devuelve una lista
+    """
     capicuas = []
     for elem in matriz:
         if elem == elem[::-1]:
             capicuas.append(elem)
     return capicuas
 
-def divisor():
+def divisor()->None:
+    """
+    Esta funcion muestra un guion
+    Pre : No recibe nada
+    Post : No devuelve nada
+    """
     print(50 * "=")
 
 def main():
+    """
+    Esta funcion junta todas las funciones
+    Pre : No recibe nada
+    Post : No devuelve nada
+    """
     matriz, n  = generar_matriz()
     print(matriz)
     divisor()

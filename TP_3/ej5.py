@@ -1,6 +1,11 @@
 import random as rn
 
-def crear_matriz():
+def crear_matriz()->tuple:
+    """
+    Esta funcion crea una sala de cine
+    Pre : No recibe nada
+    Post : Devuelve una lista de listas y dos enteros
+    """
     matriz = []
     while True:
         filas = int(input("Ingrese las filas: "))
@@ -14,17 +19,32 @@ def crear_matriz():
         matriz.append([])
     return matriz, butacas, filas
 
-def mostrar_butacas(matriz):
+def mostrar_butacas(matriz:list)->list:
+    """
+    Esta funcion muestra con ocupado o no ocupado los asientos de una sala
+    Pre : Recibe una lista de listas
+    Post : Devuelve una lista de listas
+    """
     lista =  [["Libre" if x else "Ocupado" for x in y] for y in matriz]
     return lista
 
-def cargar_sala(matriz, butacas):
+def cargar_sala(matriz:list, butacas:int)->list:
+    """
+    Esta funcion carga una saala
+    Pre : Recibe una lista de listas y un entero
+    Post : Devuelve una lista de listas
+    """
     for elem in matriz:
         for i in range(butacas):
             elem.append(rn.choice([True, False]))
     return matriz
 
-def butacas_libres(matriz):
+def butacas_libres(matriz:list)->None:
+    """
+    Esta funcion cuenta la cantidad de butacas libres
+    Pre : Recibe una lista de listas
+    Post : No devuelve nada
+    """
     contador = 0
     for fila in matriz:
         for columna in fila:
@@ -32,7 +52,12 @@ def butacas_libres(matriz):
                 contador += 1
     print(f"Hay {contador} butacas libres en la sala")
 
-def reservar(matriz, filas, butacas):
+def reservar(matriz:list, filas:int, butacas:int)->bool:
+    """
+    Esta funcion permite reservar un lugar en la sala
+    Pre : Recibe una lista de listas y dos enteros
+    Post : Devuelve un booleano
+    """
     while True:
         fila = int(input("Ingrese la fila: "))
         if 0 < fila <= filas:
@@ -50,7 +75,12 @@ def reservar(matriz, filas, butacas):
         return False
     
 
-def butacas_contiguas(matriz):
+def butacas_contiguas(matriz:list)->None:
+    """
+    Esta funcion encuentra los asientos contiguos mas largos
+    Pre : Recibe una lista de listas
+    Post : No devuelve nada
+    """
     mayor = 0
     lista_mayor = []
     for i,fila in enumerate(matriz):
@@ -71,7 +101,12 @@ def butacas_contiguas(matriz):
     y += 1
     print(f"La secuencia de butacas libres mas larga comienza en la fila {x} butaca {y} y tiene {mayor} lugares libres")
 
-def main():
+def main()->None:
+    """
+    Esta funcion junta todas las funciones
+    Pre : No recibe nada
+    Post : No devuelve nada
+    """
     matriz, butacas, filas = crear_matriz()
     cargar_sala(matriz, butacas)
     ocupado_libre = mostrar_butacas(matriz)

@@ -3,22 +3,42 @@
 # restarle a columna 1 y a fila dsp de cada iteracion 
 #para que termine de iterar while nro <= n**2
 #nro se va incrementano en cada iteracion
-def generar_matriz():
+def generar_matriz()->list:
+    """
+    Esta funcion crea una matriz
+    Pre : No recibe nada
+    Post : Devuelve una lista de listas
+    """
     n = int(input("Ingrese el tamanio de la matriz: "))
     return [[0 for x in range(n)]for y in range(n)]
 
-def formatear(matriz):
+def formatear(matriz:list)->None:
+    """
+    Esta funcion printea de una mejor forma las matrices
+    Pre : Recibe una lista de listas
+    Post : No devuelve nada
+    """
     for elem in matriz:
         print(elem)
 
-def diagonal_principal(matriz):
+def diagonal_principal(matriz:list)->None:
+    """
+    Esta funcion llena una matriz de forma diagonal
+    Pre : Recibe una lista de listas
+    Post : No devuelve nada
+    """
     acumulador = 1
     for i, fila in enumerate(matriz):
         fila[i] +=acumulador
         acumulador += 2
     formatear(matriz) 
 
-def diagonal_secundaria(matriz):
+def diagonal_secundaria(matriz:list)->None:
+    """
+    Esta funcion llena una matriz de forma diagonal invertida
+    Pre : Recibe una lista de listas
+    Post : No devuelve nada
+    """
     acumulador = 1
     indice = -1
     matriz_invertida = matriz[::-1]
@@ -28,7 +48,12 @@ def diagonal_secundaria(matriz):
         indice -= 1
     formatear(matriz)
 
-def lineas_cortadas(matriz):
+def lineas_cortadas(matriz:list)->None:
+    """
+    Esta funcion llena una matriz de una diabonal hacia un costado
+    Pre : Recibe una lista de listas
+    Post : No devuelve nada
+    """
     acumulador = 1
     indice = -1
     flag = False
@@ -44,7 +69,12 @@ def lineas_cortadas(matriz):
         acumulador += 1
     formatear(matriz)
 
-def lineas(matriz):
+def lineas(matriz:list)->None:
+    """
+    Esta funcion llena una matriz en lineas de abajo hacia arriba
+    Pre : Recibe una lista de listas
+    Post : No devuelve nada
+    """
     acumulador = 1
     matriz_invertida = matriz[::-1]
     for fila in matriz_invertida:
@@ -53,7 +83,12 @@ def lineas(matriz):
         acumulador *= 2
     formatear(matriz)
 
-def intercalado(matriz):
+def intercalado(matriz:list)->None:
+    """
+    Esta funcion llena una matriz de forma intercalada
+    Pre : Recibe una lista de listas
+    Post : No devuelve nada
+    """
     acumulador = 1
     for j,fila in enumerate(matriz):
         if j % 2 == 0:
