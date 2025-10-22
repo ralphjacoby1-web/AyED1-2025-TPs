@@ -102,20 +102,20 @@ def intercalado(matriz:list)->None:
     formatear(matriz)
 
 def contar_al_reves(matriz):
-    ultimo_valor = len(matriz) * len(matriz[0])
+    acumulador = 1
+    for i,fila in enumerate(matriz):
+        for j, columna in enumerate(fila):
+            for l in range(j,i+1):
+                fila[l] += 1
+    for i,fila in enumerate(matriz):
+        for j, columna in enumerate(fila):
+            if fila[j] != 0:
+                fila[j] -= 1
+                fila[j] = acumulador
+                acumulador +=1
+    for elem in matriz:
+        elem.reverse()
     formatear(matriz)
-
-
-
-
-    # acumulador = 1
-    # indice = -1
-    # for fila in matriz:
-    #     for i in range(indice, 0):
-    #         fila[i] += acumulador
-    #         acumulador += 1
-    #     indice -= 1
-    # formatear(matriz)
 
 matriz = generar_matriz()
 # diagonal_secundaria(matriz)
