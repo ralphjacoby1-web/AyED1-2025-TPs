@@ -117,6 +117,36 @@ def contar_al_reves(matriz):
         elem.reverse()
     formatear(matriz)
 
+def espiral(matriz):
+    reverse = False
+    acumulador = 1
+    indice = -1
+    n = len(matriz[0])
+    ultimo_valor = 0
+    for i in range(1,n**2):
+        pass
+
+    # for j,fila in enumerate(matriz):
+    #     for i, columna in enumerate(fila):
+    #         if i == indice:
+    #             break
+    #         else:
+    #             fila[i] = acumulador
+    #             acumulador += 1
+    # for k, fila in enumerate(matriz):
+    #     fila[indice-1] = acumulador
+    #     acumulador += 1
+    # indice -= 1
+
+
+        #         acumulador += 1
+        # if ultimo_valor == n*n:
+        #     break
+
+
+    formatear(matriz)
+
+
 matriz = generar_matriz()
 # diagonal_secundaria(matriz)
-contar_al_reves(matriz)
+espiral(matriz)
