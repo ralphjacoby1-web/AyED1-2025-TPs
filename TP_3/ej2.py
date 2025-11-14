@@ -102,6 +102,11 @@ def intercalado(matriz:list)->None:
     formatear(matriz)
 
 def contar_al_reves(matriz):
+    """
+    Esta funcion llena al reves una matriz
+    Pre : Recibe una lista de listas
+    Post : No devuelve nada
+    """
     acumulador = 1
     for i,fila in enumerate(matriz):
         for j, columna in enumerate(fila):
